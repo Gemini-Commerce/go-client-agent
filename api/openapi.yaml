@@ -1,0 +1,321 @@
+openapi: 3.0.1
+info:
+  title: agent/service.proto
+  version: version not set
+servers:
+- url: https://agent.api.gogemini.io/
+security:
+- Authorization: []
+tags:
+- name: Agent
+paths:
+  /v1/{tenantId}/agent/create:
+    post:
+      operationId: Agent_CreateAgent
+      parameters:
+      - in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Agent_CreateAgent_request'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/agentAgentEntity'
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/rpcStatus'
+          description: An unexpected error response.
+      tags:
+      - Agent
+      x-codegen-request-body-name: body
+  /v1/{tenantId}/agent/list/page-size/{pageSize}:
+    post:
+      operationId: Agent_ListAgents
+      parameters:
+      - in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: pageSize
+        required: true
+        schema:
+          format: int64
+          type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Agent_ListAgents_request'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/agentListResponse'
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/rpcStatus'
+          description: An unexpected error response.
+      tags:
+      - Agent
+      x-codegen-request-body-name: body
+  /v1/{tenantId}/agent/{id}:
+    get:
+      operationId: Agent_GetAgent
+      parameters:
+      - in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/agentAgentEntity'
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/rpcStatus'
+          description: An unexpected error response.
+      tags:
+      - Agent
+    put:
+      operationId: Agent_UpdateAgent
+      parameters:
+      - in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Agent_UpdateAgent_request'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/agentAgentEntity'
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/rpcStatus'
+          description: An unexpected error response.
+      tags:
+      - Agent
+      x-codegen-request-body-name: body
+components:
+  schemas:
+    ListRequestFilters:
+      properties:
+        email:
+          items:
+            type: string
+          type: array
+        lastname:
+          items:
+            type: string
+          type: array
+        code:
+          items:
+            type: string
+          type: array
+      type: object
+    ListRequestSort:
+      properties:
+        evaluationOrder:
+          format: int64
+          type: integer
+        field:
+          $ref: '#/components/schemas/SortSortField'
+        order:
+          $ref: '#/components/schemas/agentSortOrder'
+      type: object
+    SortSortField:
+      default: UNKNOWN
+      enum:
+      - UNKNOWN
+      - DATE
+      - LASTNAME
+      type: string
+    agentAgentEntity:
+      example:
+        createdAt: 2000-01-23T04:56:07.000+00:00
+        grn: grn
+        firstname: firstname
+        code: code
+        phone: phone
+        id: id
+        email: email
+        lastname: lastname
+        updatedAt: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          type: string
+        grn:
+          type: string
+        code:
+          type: string
+        firstname:
+          type: string
+        lastname:
+          type: string
+        email:
+          type: string
+        phone:
+          type: string
+        createdAt:
+          format: date-time
+          type: string
+        updatedAt:
+          format: date-time
+          type: string
+      type: object
+    agentListResponse:
+      example:
+        pageToken: pageToken
+        agents:
+        - createdAt: 2000-01-23T04:56:07.000+00:00
+          grn: grn
+          firstname: firstname
+          code: code
+          phone: phone
+          id: id
+          email: email
+          lastname: lastname
+          updatedAt: 2000-01-23T04:56:07.000+00:00
+        - createdAt: 2000-01-23T04:56:07.000+00:00
+          grn: grn
+          firstname: firstname
+          code: code
+          phone: phone
+          id: id
+          email: email
+          lastname: lastname
+          updatedAt: 2000-01-23T04:56:07.000+00:00
+      properties:
+        agents:
+          items:
+            $ref: '#/components/schemas/agentAgentEntity'
+          type: array
+        pageToken:
+          type: string
+      type: object
+    agentSortOrder:
+      default: DESC
+      enum:
+      - DESC
+      - ASC
+      type: string
+    agentUpdatePayload:
+      properties:
+        firstname:
+          type: string
+        lastname:
+          type: string
+        email:
+          type: string
+        phone:
+          type: string
+      type: object
+    protobufAny:
+      additionalProperties:
+        type: object
+      properties:
+        '@type':
+          type: string
+      type: object
+    rpcStatus:
+      properties:
+        code:
+          format: int32
+          type: integer
+        message:
+          type: string
+        details:
+          items:
+            $ref: '#/components/schemas/protobufAny'
+          type: array
+      type: object
+    Agent_CreateAgent_request:
+      properties:
+        code:
+          type: string
+        firstname:
+          type: string
+        lastname:
+          type: string
+        email:
+          type: string
+        password:
+          type: string
+        phone:
+          type: string
+      type: object
+    Agent_ListAgents_request:
+      properties:
+        pageToken:
+          type: string
+        sorts:
+          items:
+            $ref: '#/components/schemas/ListRequestSort'
+          type: array
+        filtersMask:
+          type: string
+        filters:
+          $ref: '#/components/schemas/ListRequestFilters'
+      type: object
+    Agent_UpdateAgent_request:
+      properties:
+        payload:
+          $ref: '#/components/schemas/agentUpdatePayload'
+        payloadMask:
+          type: string
+      type: object
+  securitySchemes:
+    Authorization:
+      in: header
+      name: Authorization
+      type: apiKey
+    geminiAuthorization:
+      in: header
+      name: X-Gem-Token
+      type: apiKey
+x-original-swagger-version: "2.0"
