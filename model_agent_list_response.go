@@ -21,7 +21,10 @@ var _ MappedNullable = &AgentListResponse{}
 type AgentListResponse struct {
 	Agents []AgentAgentEntity `json:"agents,omitempty"`
 	PageToken *string `json:"pageToken,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _AgentListResponse AgentListResponse
 
 // NewAgentListResponse instantiates a new AgentListResponse object
 // This constructor will assign default values to properties that have it defined,
@@ -58,8 +61,8 @@ func (o *AgentListResponse) GetAgentsOk() ([]AgentAgentEntity, bool) {
 	return o.Agents, true
 }
 
-// HasAgents returns a boolean if a field has been set.
-func (o *AgentListResponse) HasAgents() bool {
+// &#39;Has&#39;Agents returns a boolean if a field has been set.
+func (o *AgentListResponse) &#39;Has&#39;Agents() bool {
 	if o != nil && !IsNil(o.Agents) {
 		return true
 	}
@@ -90,8 +93,8 @@ func (o *AgentListResponse) GetPageTokenOk() (*string, bool) {
 	return o.PageToken, true
 }
 
-// HasPageToken returns a boolean if a field has been set.
-func (o *AgentListResponse) HasPageToken() bool {
+// &#39;Has&#39;PageToken returns a boolean if a field has been set.
+func (o *AgentListResponse) &#39;Has&#39;PageToken() bool {
 	if o != nil && !IsNil(o.PageToken) {
 		return true
 	}
@@ -120,9 +123,54 @@ func (o AgentListResponse) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.PageToken) {
 		toSerialize["pageToken"] = o.PageToken
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
+func (o *AgentListResponse) UnmarshalJSON(data []byte) (err error) {
+	varAgentListResponse := _AgentListResponse{}
+
+	err = json.Unmarshal(data, &varAgentListResponse)
+
+	if err != nil {
+		return err
+	}
+
+	*o = AgentListResponse(varAgentListResponse)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "agents")
+		delete(additionalProperties, "pageToken")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
+}
+
+// GetValue returns the value of well-known types
+func (o *AgentListResponse) GetValue() interface{} {
+	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
+		return nil
+	}
+	return o.AdditionalProperties["value"]
+}
+// SetValue populate the value of well-known types
+func (o *AgentListResponse) SetValue(value interface{}) {
+	if o == nil || IsNil(o.Type) || IsNil(value) {
+		return
+	}
+    if IsNil(o.AdditionalProperties) {
+        o.AdditionalProperties = map[string]interface{}{}
+    }
+	o.AdditionalProperties["value"] = value
+	return
+}
 type NullableAgentListResponse struct {
 	value *AgentListResponse
 	isSet bool

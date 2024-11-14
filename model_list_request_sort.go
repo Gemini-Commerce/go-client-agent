@@ -22,7 +22,10 @@ type ListRequestSort struct {
 	EvaluationOrder *int64 `json:"evaluationOrder,omitempty"`
 	Field *SortSortField `json:"field,omitempty"`
 	Order *AgentSortOrder `json:"order,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _ListRequestSort ListRequestSort
 
 // NewListRequestSort instantiates a new ListRequestSort object
 // This constructor will assign default values to properties that have it defined,
@@ -30,9 +33,9 @@ type ListRequestSort struct {
 // will change when the set of required properties is changed
 func NewListRequestSort() *ListRequestSort {
 	this := ListRequestSort{}
-	var field SortSortField = UNKNOWN
+	var field SortSortField = SORTSORTFIELD_UNKNOWN
 	this.Field = &field
-	var order AgentSortOrder = DESC
+	var order AgentSortOrder = AGENTSORTORDER_DESC
 	this.Order = &order
 	return &this
 }
@@ -42,9 +45,9 @@ func NewListRequestSort() *ListRequestSort {
 // but it doesn't guarantee that properties required by API are set
 func NewListRequestSortWithDefaults() *ListRequestSort {
 	this := ListRequestSort{}
-	var field SortSortField = UNKNOWN
+	var field SortSortField = SORTSORTFIELD_UNKNOWN
 	this.Field = &field
-	var order AgentSortOrder = DESC
+	var order AgentSortOrder = AGENTSORTORDER_DESC
 	this.Order = &order
 	return &this
 }
@@ -67,8 +70,8 @@ func (o *ListRequestSort) GetEvaluationOrderOk() (*int64, bool) {
 	return o.EvaluationOrder, true
 }
 
-// HasEvaluationOrder returns a boolean if a field has been set.
-func (o *ListRequestSort) HasEvaluationOrder() bool {
+// &#39;Has&#39;EvaluationOrder returns a boolean if a field has been set.
+func (o *ListRequestSort) &#39;Has&#39;EvaluationOrder() bool {
 	if o != nil && !IsNil(o.EvaluationOrder) {
 		return true
 	}
@@ -99,8 +102,8 @@ func (o *ListRequestSort) GetFieldOk() (*SortSortField, bool) {
 	return o.Field, true
 }
 
-// HasField returns a boolean if a field has been set.
-func (o *ListRequestSort) HasField() bool {
+// &#39;Has&#39;Field returns a boolean if a field has been set.
+func (o *ListRequestSort) &#39;Has&#39;Field() bool {
 	if o != nil && !IsNil(o.Field) {
 		return true
 	}
@@ -131,8 +134,8 @@ func (o *ListRequestSort) GetOrderOk() (*AgentSortOrder, bool) {
 	return o.Order, true
 }
 
-// HasOrder returns a boolean if a field has been set.
-func (o *ListRequestSort) HasOrder() bool {
+// &#39;Has&#39;Order returns a boolean if a field has been set.
+func (o *ListRequestSort) &#39;Has&#39;Order() bool {
 	if o != nil && !IsNil(o.Order) {
 		return true
 	}
@@ -164,9 +167,55 @@ func (o ListRequestSort) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Order) {
 		toSerialize["order"] = o.Order
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
+func (o *ListRequestSort) UnmarshalJSON(data []byte) (err error) {
+	varListRequestSort := _ListRequestSort{}
+
+	err = json.Unmarshal(data, &varListRequestSort)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ListRequestSort(varListRequestSort)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "evaluationOrder")
+		delete(additionalProperties, "field")
+		delete(additionalProperties, "order")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
+}
+
+// GetValue returns the value of well-known types
+func (o *ListRequestSort) GetValue() interface{} {
+	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
+		return nil
+	}
+	return o.AdditionalProperties["value"]
+}
+// SetValue populate the value of well-known types
+func (o *ListRequestSort) SetValue(value interface{}) {
+	if o == nil || IsNil(o.Type) || IsNil(value) {
+		return
+	}
+    if IsNil(o.AdditionalProperties) {
+        o.AdditionalProperties = map[string]interface{}{}
+    }
+	o.AdditionalProperties["value"] = value
+	return
+}
 type NullableListRequestSort struct {
 	value *ListRequestSort
 	isSet bool

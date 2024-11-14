@@ -21,7 +21,10 @@ var _ MappedNullable = &AgentUpdateAgentRequest{}
 type AgentUpdateAgentRequest struct {
 	Payload *AgentUpdatePayload `json:"payload,omitempty"`
 	PayloadMask *string `json:"payloadMask,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _AgentUpdateAgentRequest AgentUpdateAgentRequest
 
 // NewAgentUpdateAgentRequest instantiates a new AgentUpdateAgentRequest object
 // This constructor will assign default values to properties that have it defined,
@@ -58,8 +61,8 @@ func (o *AgentUpdateAgentRequest) GetPayloadOk() (*AgentUpdatePayload, bool) {
 	return o.Payload, true
 }
 
-// HasPayload returns a boolean if a field has been set.
-func (o *AgentUpdateAgentRequest) HasPayload() bool {
+// &#39;Has&#39;Payload returns a boolean if a field has been set.
+func (o *AgentUpdateAgentRequest) &#39;Has&#39;Payload() bool {
 	if o != nil && !IsNil(o.Payload) {
 		return true
 	}
@@ -90,8 +93,8 @@ func (o *AgentUpdateAgentRequest) GetPayloadMaskOk() (*string, bool) {
 	return o.PayloadMask, true
 }
 
-// HasPayloadMask returns a boolean if a field has been set.
-func (o *AgentUpdateAgentRequest) HasPayloadMask() bool {
+// &#39;Has&#39;PayloadMask returns a boolean if a field has been set.
+func (o *AgentUpdateAgentRequest) &#39;Has&#39;PayloadMask() bool {
 	if o != nil && !IsNil(o.PayloadMask) {
 		return true
 	}
@@ -120,9 +123,54 @@ func (o AgentUpdateAgentRequest) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.PayloadMask) {
 		toSerialize["payloadMask"] = o.PayloadMask
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
+func (o *AgentUpdateAgentRequest) UnmarshalJSON(data []byte) (err error) {
+	varAgentUpdateAgentRequest := _AgentUpdateAgentRequest{}
+
+	err = json.Unmarshal(data, &varAgentUpdateAgentRequest)
+
+	if err != nil {
+		return err
+	}
+
+	*o = AgentUpdateAgentRequest(varAgentUpdateAgentRequest)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "payload")
+		delete(additionalProperties, "payloadMask")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
+}
+
+// GetValue returns the value of well-known types
+func (o *AgentUpdateAgentRequest) GetValue() interface{} {
+	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
+		return nil
+	}
+	return o.AdditionalProperties["value"]
+}
+// SetValue populate the value of well-known types
+func (o *AgentUpdateAgentRequest) SetValue(value interface{}) {
+	if o == nil || IsNil(o.Type) || IsNil(value) {
+		return
+	}
+    if IsNil(o.AdditionalProperties) {
+        o.AdditionalProperties = map[string]interface{}{}
+    }
+	o.AdditionalProperties["value"] = value
+	return
+}
 type NullableAgentUpdateAgentRequest struct {
 	value *AgentUpdateAgentRequest
 	isSet bool

@@ -20,8 +20,8 @@ type AgentSortOrder string
 
 // List of agentSortOrder
 const (
-	DESC AgentSortOrder = "DESC"
-	ASC AgentSortOrder = "ASC"
+	AGENTSORTORDER_DESC AgentSortOrder = "DESC"
+	AGENTSORTORDER_ASC AgentSortOrder = "ASC"
 )
 
 // All allowed values of AgentSortOrder enum

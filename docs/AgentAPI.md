@@ -1,4 +1,4 @@
-# GeminiCommerce\Agent\AgentAPI
+# \AgentAPI
 
 All URIs are relative to *https://agent.api.gogemini.io*
 

@@ -29,7 +29,10 @@ type AgentAgentEntity struct {
 	Phone *string `json:"phone,omitempty"`
 	CreatedAt *time.Time `json:"createdAt,omitempty"`
 	UpdatedAt *time.Time `json:"updatedAt,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _AgentAgentEntity AgentAgentEntity
 
 // NewAgentAgentEntity instantiates a new AgentAgentEntity object
 // This constructor will assign default values to properties that have it defined,
@@ -66,8 +69,8 @@ func (o *AgentAgentEntity) GetIdOk() (*string, bool) {
 	return o.Id, true
 }
 
-// HasId returns a boolean if a field has been set.
-func (o *AgentAgentEntity) HasId() bool {
+// &#39;Has&#39;Id returns a boolean if a field has been set.
+func (o *AgentAgentEntity) &#39;Has&#39;Id() bool {
 	if o != nil && !IsNil(o.Id) {
 		return true
 	}
@@ -98,8 +101,8 @@ func (o *AgentAgentEntity) GetGrnOk() (*string, bool) {
 	return o.Grn, true
 }
 
-// HasGrn returns a boolean if a field has been set.
-func (o *AgentAgentEntity) HasGrn() bool {
+// &#39;Has&#39;Grn returns a boolean if a field has been set.
+func (o *AgentAgentEntity) &#39;Has&#39;Grn() bool {
 	if o != nil && !IsNil(o.Grn) {
 		return true
 	}
@@ -130,8 +133,8 @@ func (o *AgentAgentEntity) GetCodeOk() (*string, bool) {
 	return o.Code, true
 }
 
-// HasCode returns a boolean if a field has been set.
-func (o *AgentAgentEntity) HasCode() bool {
+// &#39;Has&#39;Code returns a boolean if a field has been set.
+func (o *AgentAgentEntity) &#39;Has&#39;Code() bool {
 	if o != nil && !IsNil(o.Code) {
 		return true
 	}
@@ -162,8 +165,8 @@ func (o *AgentAgentEntity) GetFirstnameOk() (*string, bool) {
 	return o.Firstname, true
 }
 
-// HasFirstname returns a boolean if a field has been set.
-func (o *AgentAgentEntity) HasFirstname() bool {
+// &#39;Has&#39;Firstname returns a boolean if a field has been set.
+func (o *AgentAgentEntity) &#39;Has&#39;Firstname() bool {
 	if o != nil && !IsNil(o.Firstname) {
 		return true
 	}
@@ -194,8 +197,8 @@ func (o *AgentAgentEntity) GetLastnameOk() (*string, bool) {
 	return o.Lastname, true
 }
 
-// HasLastname returns a boolean if a field has been set.
-func (o *AgentAgentEntity) HasLastname() bool {
+// &#39;Has&#39;Lastname returns a boolean if a field has been set.
+func (o *AgentAgentEntity) &#39;Has&#39;Lastname() bool {
 	if o != nil && !IsNil(o.Lastname) {
 		return true
 	}
@@ -226,8 +229,8 @@ func (o *AgentAgentEntity) GetEmailOk() (*string, bool) {
 	return o.Email, true
 }
 
-// HasEmail returns a boolean if a field has been set.
-func (o *AgentAgentEntity) HasEmail() bool {
+// &#39;Has&#39;Email returns a boolean if a field has been set.
+func (o *AgentAgentEntity) &#39;Has&#39;Email() bool {
 	if o != nil && !IsNil(o.Email) {
 		return true
 	}
@@ -258,8 +261,8 @@ func (o *AgentAgentEntity) GetPhoneOk() (*string, bool) {
 	return o.Phone, true
 }
 
-// HasPhone returns a boolean if a field has been set.
-func (o *AgentAgentEntity) HasPhone() bool {
+// &#39;Has&#39;Phone returns a boolean if a field has been set.
+func (o *AgentAgentEntity) &#39;Has&#39;Phone() bool {
 	if o != nil && !IsNil(o.Phone) {
 		return true
 	}
@@ -290,8 +293,8 @@ func (o *AgentAgentEntity) GetCreatedAtOk() (*time.Time, bool) {
 	return o.CreatedAt, true
 }
 
-// HasCreatedAt returns a boolean if a field has been set.
-func (o *AgentAgentEntity) HasCreatedAt() bool {
+// &#39;Has&#39;CreatedAt returns a boolean if a field has been set.
+func (o *AgentAgentEntity) &#39;Has&#39;CreatedAt() bool {
 	if o != nil && !IsNil(o.CreatedAt) {
 		return true
 	}
@@ -322,8 +325,8 @@ func (o *AgentAgentEntity) GetUpdatedAtOk() (*time.Time, bool) {
 	return o.UpdatedAt, true
 }
 
-// HasUpdatedAt returns a boolean if a field has been set.
-func (o *AgentAgentEntity) HasUpdatedAt() bool {
+// &#39;Has&#39;UpdatedAt returns a boolean if a field has been set.
+func (o *AgentAgentEntity) &#39;Has&#39;UpdatedAt() bool {
 	if o != nil && !IsNil(o.UpdatedAt) {
 		return true
 	}
@@ -373,9 +376,61 @@ func (o AgentAgentEntity) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.UpdatedAt) {
 		toSerialize["updatedAt"] = o.UpdatedAt
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
+func (o *AgentAgentEntity) UnmarshalJSON(data []byte) (err error) {
+	varAgentAgentEntity := _AgentAgentEntity{}
+
+	err = json.Unmarshal(data, &varAgentAgentEntity)
+
+	if err != nil {
+		return err
+	}
+
+	*o = AgentAgentEntity(varAgentAgentEntity)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "id")
+		delete(additionalProperties, "grn")
+		delete(additionalProperties, "code")
+		delete(additionalProperties, "firstname")
+		delete(additionalProperties, "lastname")
+		delete(additionalProperties, "email")
+		delete(additionalProperties, "phone")
+		delete(additionalProperties, "createdAt")
+		delete(additionalProperties, "updatedAt")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
+}
+
+// GetValue returns the value of well-known types
+func (o *AgentAgentEntity) GetValue() interface{} {
+	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
+		return nil
+	}
+	return o.AdditionalProperties["value"]
+}
+// SetValue populate the value of well-known types
+func (o *AgentAgentEntity) SetValue(value interface{}) {
+	if o == nil || IsNil(o.Type) || IsNil(value) {
+		return
+	}
+    if IsNil(o.AdditionalProperties) {
+        o.AdditionalProperties = map[string]interface{}{}
+    }
+	o.AdditionalProperties["value"] = value
+	return
+}
 type NullableAgentAgentEntity struct {
 	value *AgentAgentEntity
 	isSet bool

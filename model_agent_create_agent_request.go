@@ -25,7 +25,10 @@ type AgentCreateAgentRequest struct {
 	Email *string `json:"email,omitempty"`
 	Password *string `json:"password,omitempty"`
 	Phone *string `json:"phone,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _AgentCreateAgentRequest AgentCreateAgentRequest
 
 // NewAgentCreateAgentRequest instantiates a new AgentCreateAgentRequest object
 // This constructor will assign default values to properties that have it defined,
@@ -62,8 +65,8 @@ func (o *AgentCreateAgentRequest) GetCodeOk() (*string, bool) {
 	return o.Code, true
 }
 
-// HasCode returns a boolean if a field has been set.
-func (o *AgentCreateAgentRequest) HasCode() bool {
+// &#39;Has&#39;Code returns a boolean if a field has been set.
+func (o *AgentCreateAgentRequest) &#39;Has&#39;Code() bool {
 	if o != nil && !IsNil(o.Code) {
 		return true
 	}
@@ -94,8 +97,8 @@ func (o *AgentCreateAgentRequest) GetFirstnameOk() (*string, bool) {
 	return o.Firstname, true
 }
 
-// HasFirstname returns a boolean if a field has been set.
-func (o *AgentCreateAgentRequest) HasFirstname() bool {
+// &#39;Has&#39;Firstname returns a boolean if a field has been set.
+func (o *AgentCreateAgentRequest) &#39;Has&#39;Firstname() bool {
 	if o != nil && !IsNil(o.Firstname) {
 		return true
 	}
@@ -126,8 +129,8 @@ func (o *AgentCreateAgentRequest) GetLastnameOk() (*string, bool) {
 	return o.Lastname, true
 }
 
-// HasLastname returns a boolean if a field has been set.
-func (o *AgentCreateAgentRequest) HasLastname() bool {
+// &#39;Has&#39;Lastname returns a boolean if a field has been set.
+func (o *AgentCreateAgentRequest) &#39;Has&#39;Lastname() bool {
 	if o != nil && !IsNil(o.Lastname) {
 		return true
 	}
@@ -158,8 +161,8 @@ func (o *AgentCreateAgentRequest) GetEmailOk() (*string, bool) {
 	return o.Email, true
 }
 
-// HasEmail returns a boolean if a field has been set.
-func (o *AgentCreateAgentRequest) HasEmail() bool {
+// &#39;Has&#39;Email returns a boolean if a field has been set.
+func (o *AgentCreateAgentRequest) &#39;Has&#39;Email() bool {
 	if o != nil && !IsNil(o.Email) {
 		return true
 	}
@@ -190,8 +193,8 @@ func (o *AgentCreateAgentRequest) GetPasswordOk() (*string, bool) {
 	return o.Password, true
 }
 
-// HasPassword returns a boolean if a field has been set.
-func (o *AgentCreateAgentRequest) HasPassword() bool {
+// &#39;Has&#39;Password returns a boolean if a field has been set.
+func (o *AgentCreateAgentRequest) &#39;Has&#39;Password() bool {
 	if o != nil && !IsNil(o.Password) {
 		return true
 	}
@@ -222,8 +225,8 @@ func (o *AgentCreateAgentRequest) GetPhoneOk() (*string, bool) {
 	return o.Phone, true
 }
 
-// HasPhone returns a boolean if a field has been set.
-func (o *AgentCreateAgentRequest) HasPhone() bool {
+// &#39;Has&#39;Phone returns a boolean if a field has been set.
+func (o *AgentCreateAgentRequest) &#39;Has&#39;Phone() bool {
 	if o != nil && !IsNil(o.Phone) {
 		return true
 	}
@@ -264,9 +267,58 @@ func (o AgentCreateAgentRequest) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Phone) {
 		toSerialize["phone"] = o.Phone
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
+func (o *AgentCreateAgentRequest) UnmarshalJSON(data []byte) (err error) {
+	varAgentCreateAgentRequest := _AgentCreateAgentRequest{}
+
+	err = json.Unmarshal(data, &varAgentCreateAgentRequest)
+
+	if err != nil {
+		return err
+	}
+
+	*o = AgentCreateAgentRequest(varAgentCreateAgentRequest)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "code")
+		delete(additionalProperties, "firstname")
+		delete(additionalProperties, "lastname")
+		delete(additionalProperties, "email")
+		delete(additionalProperties, "password")
+		delete(additionalProperties, "phone")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
+}
+
+// GetValue returns the value of well-known types
+func (o *AgentCreateAgentRequest) GetValue() interface{} {
+	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
+		return nil
+	}
+	return o.AdditionalProperties["value"]
+}
+// SetValue populate the value of well-known types
+func (o *AgentCreateAgentRequest) SetValue(value interface{}) {
+	if o == nil || IsNil(o.Type) || IsNil(value) {
+		return
+	}
+    if IsNil(o.AdditionalProperties) {
+        o.AdditionalProperties = map[string]interface{}{}
+    }
+	o.AdditionalProperties["value"] = value
+	return
+}
 type NullableAgentCreateAgentRequest struct {
 	value *AgentCreateAgentRequest
 	isSet bool

@@ -1,5 +1,4 @@
 .gitignore
-.openapi-generator-ignore
 .travis.yml
 README.md
 api/openapi.yaml
@@ -35,5 +34,4 @@ model_protobuf_any.go
 model_rpc_status.go
 model_sort_sort_field.go
 response.go
-test/api_agent_test.go
 utils.go

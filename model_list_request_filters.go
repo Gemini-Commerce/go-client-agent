@@ -22,7 +22,10 @@ type ListRequestFilters struct {
 	Email []string `json:"email,omitempty"`
 	Lastname []string `json:"lastname,omitempty"`
 	Code []string `json:"code,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _ListRequestFilters ListRequestFilters
 
 // NewListRequestFilters instantiates a new ListRequestFilters object
 // This constructor will assign default values to properties that have it defined,
@@ -59,8 +62,8 @@ func (o *ListRequestFilters) GetEmailOk() ([]string, bool) {
 	return o.Email, true
 }
 
-// HasEmail returns a boolean if a field has been set.
-func (o *ListRequestFilters) HasEmail() bool {
+// &#39;Has&#39;Email returns a boolean if a field has been set.
+func (o *ListRequestFilters) &#39;Has&#39;Email() bool {
 	if o != nil && !IsNil(o.Email) {
 		return true
 	}
@@ -91,8 +94,8 @@ func (o *ListRequestFilters) GetLastnameOk() ([]string, bool) {
 	return o.Lastname, true
 }
 
-// HasLastname returns a boolean if a field has been set.
-func (o *ListRequestFilters) HasLastname() bool {
+// &#39;Has&#39;Lastname returns a boolean if a field has been set.
+func (o *ListRequestFilters) &#39;Has&#39;Lastname() bool {
 	if o != nil && !IsNil(o.Lastname) {
 		return true
 	}
@@ -123,8 +126,8 @@ func (o *ListRequestFilters) GetCodeOk() ([]string, bool) {
 	return o.Code, true
 }
 
-// HasCode returns a boolean if a field has been set.
-func (o *ListRequestFilters) HasCode() bool {
+// &#39;Has&#39;Code returns a boolean if a field has been set.
+func (o *ListRequestFilters) &#39;Has&#39;Code() bool {
 	if o != nil && !IsNil(o.Code) {
 		return true
 	}
@@ -156,9 +159,55 @@ func (o ListRequestFilters) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Code) {
 		toSerialize["code"] = o.Code
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
+func (o *ListRequestFilters) UnmarshalJSON(data []byte) (err error) {
+	varListRequestFilters := _ListRequestFilters{}
+
+	err = json.Unmarshal(data, &varListRequestFilters)
+
+	if err != nil {
+		return err
+	}
+
+	*o = ListRequestFilters(varListRequestFilters)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "email")
+		delete(additionalProperties, "lastname")
+		delete(additionalProperties, "code")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
+}
+
+// GetValue returns the value of well-known types
+func (o *ListRequestFilters) GetValue() interface{} {
+	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
+		return nil
+	}
+	return o.AdditionalProperties["value"]
+}
+// SetValue populate the value of well-known types
+func (o *ListRequestFilters) SetValue(value interface{}) {
+	if o == nil || IsNil(o.Type) || IsNil(value) {
+		return
+	}
+    if IsNil(o.AdditionalProperties) {
+        o.AdditionalProperties = map[string]interface{}{}
+    }
+	o.AdditionalProperties["value"] = value
+	return
+}
 type NullableListRequestFilters struct {
 	value *ListRequestFilters
 	isSet bool

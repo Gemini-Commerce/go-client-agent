@@ -23,7 +23,10 @@ type AgentUpdatePayload struct {
 	Lastname *string `json:"lastname,omitempty"`
 	Email *string `json:"email,omitempty"`
 	Phone *string `json:"phone,omitempty"`
+	AdditionalProperties map[string]interface{}
 }
+
+type _AgentUpdatePayload AgentUpdatePayload
 
 // NewAgentUpdatePayload instantiates a new AgentUpdatePayload object
 // This constructor will assign default values to properties that have it defined,
@@ -60,8 +63,8 @@ func (o *AgentUpdatePayload) GetFirstnameOk() (*string, bool) {
 	return o.Firstname, true
 }
 
-// HasFirstname returns a boolean if a field has been set.
-func (o *AgentUpdatePayload) HasFirstname() bool {
+// &#39;Has&#39;Firstname returns a boolean if a field has been set.
+func (o *AgentUpdatePayload) &#39;Has&#39;Firstname() bool {
 	if o != nil && !IsNil(o.Firstname) {
 		return true
 	}
@@ -92,8 +95,8 @@ func (o *AgentUpdatePayload) GetLastnameOk() (*string, bool) {
 	return o.Lastname, true
 }
 
-// HasLastname returns a boolean if a field has been set.
-func (o *AgentUpdatePayload) HasLastname() bool {
+// &#39;Has&#39;Lastname returns a boolean if a field has been set.
+func (o *AgentUpdatePayload) &#39;Has&#39;Lastname() bool {
 	if o != nil && !IsNil(o.Lastname) {
 		return true
 	}
@@ -124,8 +127,8 @@ func (o *AgentUpdatePayload) GetEmailOk() (*string, bool) {
 	return o.Email, true
 }
 
-// HasEmail returns a boolean if a field has been set.
-func (o *AgentUpdatePayload) HasEmail() bool {
+// &#39;Has&#39;Email returns a boolean if a field has been set.
+func (o *AgentUpdatePayload) &#39;Has&#39;Email() bool {
 	if o != nil && !IsNil(o.Email) {
 		return true
 	}
@@ -156,8 +159,8 @@ func (o *AgentUpdatePayload) GetPhoneOk() (*string, bool) {
 	return o.Phone, true
 }
 
-// HasPhone returns a boolean if a field has been set.
-func (o *AgentUpdatePayload) HasPhone() bool {
+// &#39;Has&#39;Phone returns a boolean if a field has been set.
+func (o *AgentUpdatePayload) &#39;Has&#39;Phone() bool {
 	if o != nil && !IsNil(o.Phone) {
 		return true
 	}
@@ -192,9 +195,56 @@ func (o AgentUpdatePayload) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Phone) {
 		toSerialize["phone"] = o.Phone
 	}
+
+	for key, value := range o.AdditionalProperties {
+		toSerialize[key] = value
+	}
+
 	return toSerialize, nil
 }
 
+func (o *AgentUpdatePayload) UnmarshalJSON(data []byte) (err error) {
+	varAgentUpdatePayload := _AgentUpdatePayload{}
+
+	err = json.Unmarshal(data, &varAgentUpdatePayload)
+
+	if err != nil {
+		return err
+	}
+
+	*o = AgentUpdatePayload(varAgentUpdatePayload)
+
+	additionalProperties := make(map[string]interface{})
+
+	if err = json.Unmarshal(data, &additionalProperties); err == nil {
+		delete(additionalProperties, "firstname")
+		delete(additionalProperties, "lastname")
+		delete(additionalProperties, "email")
+		delete(additionalProperties, "phone")
+		o.AdditionalProperties = additionalProperties
+	}
+
+	return err
+}
+
+// GetValue returns the value of well-known types
+func (o *AgentUpdatePayload) GetValue() interface{} {
+	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
+		return nil
+	}
+	return o.AdditionalProperties["value"]
+}
+// SetValue populate the value of well-known types
+func (o *AgentUpdatePayload) SetValue(value interface{}) {
+	if o == nil || IsNil(o.Type) || IsNil(value) {
+		return
+	}
+    if IsNil(o.AdditionalProperties) {
+        o.AdditionalProperties = map[string]interface{}{}
+    }
+	o.AdditionalProperties["value"] = value
+	return
+}
 type NullableAgentUpdatePayload struct {
 	value *AgentUpdatePayload
 	isSet bool
