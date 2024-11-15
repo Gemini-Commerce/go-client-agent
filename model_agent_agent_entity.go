@@ -69,8 +69,8 @@ func (o *AgentAgentEntity) GetIdOk() (*string, bool) {
 	return o.Id, true
 }
 
-// &#39;Has&#39;Id returns a boolean if a field has been set.
-func (o *AgentAgentEntity) &#39;Has&#39;Id() bool {
+// HasId returns a boolean if a field has been set.
+func (o *AgentAgentEntity) HasId() bool {
 	if o != nil && !IsNil(o.Id) {
 		return true
 	}
@@ -101,8 +101,8 @@ func (o *AgentAgentEntity) GetGrnOk() (*string, bool) {
 	return o.Grn, true
 }
 
-// &#39;Has&#39;Grn returns a boolean if a field has been set.
-func (o *AgentAgentEntity) &#39;Has&#39;Grn() bool {
+// HasGrn returns a boolean if a field has been set.
+func (o *AgentAgentEntity) HasGrn() bool {
 	if o != nil && !IsNil(o.Grn) {
 		return true
 	}
@@ -133,8 +133,8 @@ func (o *AgentAgentEntity) GetCodeOk() (*string, bool) {
 	return o.Code, true
 }
 
-// &#39;Has&#39;Code returns a boolean if a field has been set.
-func (o *AgentAgentEntity) &#39;Has&#39;Code() bool {
+// HasCode returns a boolean if a field has been set.
+func (o *AgentAgentEntity) HasCode() bool {
 	if o != nil && !IsNil(o.Code) {
 		return true
 	}
@@ -165,8 +165,8 @@ func (o *AgentAgentEntity) GetFirstnameOk() (*string, bool) {
 	return o.Firstname, true
 }
 
-// &#39;Has&#39;Firstname returns a boolean if a field has been set.
-func (o *AgentAgentEntity) &#39;Has&#39;Firstname() bool {
+// HasFirstname returns a boolean if a field has been set.
+func (o *AgentAgentEntity) HasFirstname() bool {
 	if o != nil && !IsNil(o.Firstname) {
 		return true
 	}
@@ -197,8 +197,8 @@ func (o *AgentAgentEntity) GetLastnameOk() (*string, bool) {
 	return o.Lastname, true
 }
 
-// &#39;Has&#39;Lastname returns a boolean if a field has been set.
-func (o *AgentAgentEntity) &#39;Has&#39;Lastname() bool {
+// HasLastname returns a boolean if a field has been set.
+func (o *AgentAgentEntity) HasLastname() bool {
 	if o != nil && !IsNil(o.Lastname) {
 		return true
 	}
@@ -229,8 +229,8 @@ func (o *AgentAgentEntity) GetEmailOk() (*string, bool) {
 	return o.Email, true
 }
 
-// &#39;Has&#39;Email returns a boolean if a field has been set.
-func (o *AgentAgentEntity) &#39;Has&#39;Email() bool {
+// HasEmail returns a boolean if a field has been set.
+func (o *AgentAgentEntity) HasEmail() bool {
 	if o != nil && !IsNil(o.Email) {
 		return true
 	}
@@ -261,8 +261,8 @@ func (o *AgentAgentEntity) GetPhoneOk() (*string, bool) {
 	return o.Phone, true
 }
 
-// &#39;Has&#39;Phone returns a boolean if a field has been set.
-func (o *AgentAgentEntity) &#39;Has&#39;Phone() bool {
+// HasPhone returns a boolean if a field has been set.
+func (o *AgentAgentEntity) HasPhone() bool {
 	if o != nil && !IsNil(o.Phone) {
 		return true
 	}
@@ -293,8 +293,8 @@ func (o *AgentAgentEntity) GetCreatedAtOk() (*time.Time, bool) {
 	return o.CreatedAt, true
 }
 
-// &#39;Has&#39;CreatedAt returns a boolean if a field has been set.
-func (o *AgentAgentEntity) &#39;Has&#39;CreatedAt() bool {
+// HasCreatedAt returns a boolean if a field has been set.
+func (o *AgentAgentEntity) HasCreatedAt() bool {
 	if o != nil && !IsNil(o.CreatedAt) {
 		return true
 	}
@@ -325,8 +325,8 @@ func (o *AgentAgentEntity) GetUpdatedAtOk() (*time.Time, bool) {
 	return o.UpdatedAt, true
 }
 
-// &#39;Has&#39;UpdatedAt returns a boolean if a field has been set.
-func (o *AgentAgentEntity) &#39;Has&#39;UpdatedAt() bool {
+// HasUpdatedAt returns a boolean if a field has been set.
+func (o *AgentAgentEntity) HasUpdatedAt() bool {
 	if o != nil && !IsNil(o.UpdatedAt) {
 		return true
 	}

@@ -65,8 +65,8 @@ func (o *AgentCreateAgentRequest) GetCodeOk() (*string, bool) {
 	return o.Code, true
 }
 
-// &#39;Has&#39;Code returns a boolean if a field has been set.
-func (o *AgentCreateAgentRequest) &#39;Has&#39;Code() bool {
+// HasCode returns a boolean if a field has been set.
+func (o *AgentCreateAgentRequest) HasCode() bool {
 	if o != nil && !IsNil(o.Code) {
 		return true
 	}
@@ -97,8 +97,8 @@ func (o *AgentCreateAgentRequest) GetFirstnameOk() (*string, bool) {
 	return o.Firstname, true
 }
 
-// &#39;Has&#39;Firstname returns a boolean if a field has been set.
-func (o *AgentCreateAgentRequest) &#39;Has&#39;Firstname() bool {
+// HasFirstname returns a boolean if a field has been set.
+func (o *AgentCreateAgentRequest) HasFirstname() bool {
 	if o != nil && !IsNil(o.Firstname) {
 		return true
 	}
@@ -129,8 +129,8 @@ func (o *AgentCreateAgentRequest) GetLastnameOk() (*string, bool) {
 	return o.Lastname, true
 }
 
-// &#39;Has&#39;Lastname returns a boolean if a field has been set.
-func (o *AgentCreateAgentRequest) &#39;Has&#39;Lastname() bool {
+// HasLastname returns a boolean if a field has been set.
+func (o *AgentCreateAgentRequest) HasLastname() bool {
 	if o != nil && !IsNil(o.Lastname) {
 		return true
 	}
@@ -161,8 +161,8 @@ func (o *AgentCreateAgentRequest) GetEmailOk() (*string, bool) {
 	return o.Email, true
 }
 
-// &#39;Has&#39;Email returns a boolean if a field has been set.
-func (o *AgentCreateAgentRequest) &#39;Has&#39;Email() bool {
+// HasEmail returns a boolean if a field has been set.
+func (o *AgentCreateAgentRequest) HasEmail() bool {
 	if o != nil && !IsNil(o.Email) {
 		return true
 	}
@@ -193,8 +193,8 @@ func (o *AgentCreateAgentRequest) GetPasswordOk() (*string, bool) {
 	return o.Password, true
 }
 
-// &#39;Has&#39;Password returns a boolean if a field has been set.
-func (o *AgentCreateAgentRequest) &#39;Has&#39;Password() bool {
+// HasPassword returns a boolean if a field has been set.
+func (o *AgentCreateAgentRequest) HasPassword() bool {
 	if o != nil && !IsNil(o.Password) {
 		return true
 	}
@@ -225,8 +225,8 @@ func (o *AgentCreateAgentRequest) GetPhoneOk() (*string, bool) {
 	return o.Phone, true
 }
 
-// &#39;Has&#39;Phone returns a boolean if a field has been set.
-func (o *AgentCreateAgentRequest) &#39;Has&#39;Phone() bool {
+// HasPhone returns a boolean if a field has been set.
+func (o *AgentCreateAgentRequest) HasPhone() bool {
 	if o != nil && !IsNil(o.Phone) {
 		return true
 	}

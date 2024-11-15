@@ -63,8 +63,8 @@ func (o *AgentListAgentsRequest) GetPageTokenOk() (*string, bool) {
 	return o.PageToken, true
 }
 
-// &#39;Has&#39;PageToken returns a boolean if a field has been set.
-func (o *AgentListAgentsRequest) &#39;Has&#39;PageToken() bool {
+// HasPageToken returns a boolean if a field has been set.
+func (o *AgentListAgentsRequest) HasPageToken() bool {
 	if o != nil && !IsNil(o.PageToken) {
 		return true
 	}
@@ -95,8 +95,8 @@ func (o *AgentListAgentsRequest) GetSortsOk() ([]ListRequestSort, bool) {
 	return o.Sorts, true
 }
 
-// &#39;Has&#39;Sorts returns a boolean if a field has been set.
-func (o *AgentListAgentsRequest) &#39;Has&#39;Sorts() bool {
+// HasSorts returns a boolean if a field has been set.
+func (o *AgentListAgentsRequest) HasSorts() bool {
 	if o != nil && !IsNil(o.Sorts) {
 		return true
 	}
@@ -127,8 +127,8 @@ func (o *AgentListAgentsRequest) GetFiltersMaskOk() (*string, bool) {
 	return o.FiltersMask, true
 }
 
-// &#39;Has&#39;FiltersMask returns a boolean if a field has been set.
-func (o *AgentListAgentsRequest) &#39;Has&#39;FiltersMask() bool {
+// HasFiltersMask returns a boolean if a field has been set.
+func (o *AgentListAgentsRequest) HasFiltersMask() bool {
 	if o != nil && !IsNil(o.FiltersMask) {
 		return true
 	}
@@ -159,8 +159,8 @@ func (o *AgentListAgentsRequest) GetFiltersOk() (*ListRequestFilters, bool) {
 	return o.Filters, true
 }
 
-// &#39;Has&#39;Filters returns a boolean if a field has been set.
-func (o *AgentListAgentsRequest) &#39;Has&#39;Filters() bool {
+// HasFilters returns a boolean if a field has been set.
+func (o *AgentListAgentsRequest) HasFilters() bool {
 	if o != nil && !IsNil(o.Filters) {
 		return true
 	}

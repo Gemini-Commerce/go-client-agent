@@ -61,8 +61,8 @@ func (o *AgentListResponse) GetAgentsOk() ([]AgentAgentEntity, bool) {
 	return o.Agents, true
 }
 
-// &#39;Has&#39;Agents returns a boolean if a field has been set.
-func (o *AgentListResponse) &#39;Has&#39;Agents() bool {
+// HasAgents returns a boolean if a field has been set.
+func (o *AgentListResponse) HasAgents() bool {
 	if o != nil && !IsNil(o.Agents) {
 		return true
 	}
@@ -93,8 +93,8 @@ func (o *AgentListResponse) GetPageTokenOk() (*string, bool) {
 	return o.PageToken, true
 }
 
-// &#39;Has&#39;PageToken returns a boolean if a field has been set.
-func (o *AgentListResponse) &#39;Has&#39;PageToken() bool {
+// HasPageToken returns a boolean if a field has been set.
+func (o *AgentListResponse) HasPageToken() bool {
 	if o != nil && !IsNil(o.PageToken) {
 		return true
 	}

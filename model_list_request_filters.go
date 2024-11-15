@@ -62,8 +62,8 @@ func (o *ListRequestFilters) GetEmailOk() ([]string, bool) {
 	return o.Email, true
 }
 
-// &#39;Has&#39;Email returns a boolean if a field has been set.
-func (o *ListRequestFilters) &#39;Has&#39;Email() bool {
+// HasEmail returns a boolean if a field has been set.
+func (o *ListRequestFilters) HasEmail() bool {
 	if o != nil && !IsNil(o.Email) {
 		return true
 	}
@@ -94,8 +94,8 @@ func (o *ListRequestFilters) GetLastnameOk() ([]string, bool) {
 	return o.Lastname, true
 }
 
-// &#39;Has&#39;Lastname returns a boolean if a field has been set.
-func (o *ListRequestFilters) &#39;Has&#39;Lastname() bool {
+// HasLastname returns a boolean if a field has been set.
+func (o *ListRequestFilters) HasLastname() bool {
 	if o != nil && !IsNil(o.Lastname) {
 		return true
 	}
@@ -126,8 +126,8 @@ func (o *ListRequestFilters) GetCodeOk() ([]string, bool) {
 	return o.Code, true
 }
 
-// &#39;Has&#39;Code returns a boolean if a field has been set.
-func (o *ListRequestFilters) &#39;Has&#39;Code() bool {
+// HasCode returns a boolean if a field has been set.
+func (o *ListRequestFilters) HasCode() bool {
 	if o != nil && !IsNil(o.Code) {
 		return true
 	}

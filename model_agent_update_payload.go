@@ -63,8 +63,8 @@ func (o *AgentUpdatePayload) GetFirstnameOk() (*string, bool) {
 	return o.Firstname, true
 }
 
-// &#39;Has&#39;Firstname returns a boolean if a field has been set.
-func (o *AgentUpdatePayload) &#39;Has&#39;Firstname() bool {
+// HasFirstname returns a boolean if a field has been set.
+func (o *AgentUpdatePayload) HasFirstname() bool {
 	if o != nil && !IsNil(o.Firstname) {
 		return true
 	}
@@ -95,8 +95,8 @@ func (o *AgentUpdatePayload) GetLastnameOk() (*string, bool) {
 	return o.Lastname, true
 }
 
-// &#39;Has&#39;Lastname returns a boolean if a field has been set.
-func (o *AgentUpdatePayload) &#39;Has&#39;Lastname() bool {
+// HasLastname returns a boolean if a field has been set.
+func (o *AgentUpdatePayload) HasLastname() bool {
 	if o != nil && !IsNil(o.Lastname) {
 		return true
 	}
@@ -127,8 +127,8 @@ func (o *AgentUpdatePayload) GetEmailOk() (*string, bool) {
 	return o.Email, true
 }
 
-// &#39;Has&#39;Email returns a boolean if a field has been set.
-func (o *AgentUpdatePayload) &#39;Has&#39;Email() bool {
+// HasEmail returns a boolean if a field has been set.
+func (o *AgentUpdatePayload) HasEmail() bool {
 	if o != nil && !IsNil(o.Email) {
 		return true
 	}
@@ -159,8 +159,8 @@ func (o *AgentUpdatePayload) GetPhoneOk() (*string, bool) {
 	return o.Phone, true
 }
 
-// &#39;Has&#39;Phone returns a boolean if a field has been set.
-func (o *AgentUpdatePayload) &#39;Has&#39;Phone() bool {
+// HasPhone returns a boolean if a field has been set.
+func (o *AgentUpdatePayload) HasPhone() bool {
 	if o != nil && !IsNil(o.Phone) {
 		return true
 	}
