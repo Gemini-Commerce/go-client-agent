@@ -19,12 +19,70 @@ import (
 	"strings"
 )
 
+type AgentAPI interface {
+
+	/*
+		AgentCreateAgent Method for AgentCreateAgent
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param tenantId
+		@return ApiAgentCreateAgentRequest
+	*/
+	AgentCreateAgent(ctx context.Context, tenantId string) ApiAgentCreateAgentRequest
+
+	// AgentCreateAgentExecute executes the request
+	//  @return AgentAgentEntity
+	AgentCreateAgentExecute(r ApiAgentCreateAgentRequest) (*AgentAgentEntity, *http.Response, error)
+
+	/*
+		AgentGetAgent Method for AgentGetAgent
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param tenantId
+		@param id
+		@return ApiAgentGetAgentRequest
+	*/
+	AgentGetAgent(ctx context.Context, tenantId string, id string) ApiAgentGetAgentRequest
+
+	// AgentGetAgentExecute executes the request
+	//  @return AgentAgentEntity
+	AgentGetAgentExecute(r ApiAgentGetAgentRequest) (*AgentAgentEntity, *http.Response, error)
+
+	/*
+		AgentListAgents Method for AgentListAgents
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param tenantId
+		@param pageSize
+		@return ApiAgentListAgentsRequest
+	*/
+	AgentListAgents(ctx context.Context, tenantId string, pageSize int64) ApiAgentListAgentsRequest
+
+	// AgentListAgentsExecute executes the request
+	//  @return AgentListResponse
+	AgentListAgentsExecute(r ApiAgentListAgentsRequest) (*AgentListResponse, *http.Response, error)
+
+	/*
+		AgentUpdateAgent Method for AgentUpdateAgent
+
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param tenantId
+		@param id
+		@return ApiAgentUpdateAgentRequest
+	*/
+	AgentUpdateAgent(ctx context.Context, tenantId string, id string) ApiAgentUpdateAgentRequest
+
+	// AgentUpdateAgentExecute executes the request
+	//  @return AgentAgentEntity
+	AgentUpdateAgentExecute(r ApiAgentUpdateAgentRequest) (*AgentAgentEntity, *http.Response, error)
+}
+
 // AgentAPIService AgentAPI service
 type AgentAPIService service
 
 type ApiAgentCreateAgentRequest struct {
 	ctx        context.Context
-	ApiService *AgentAPIService
+	ApiService AgentAPI
 	tenantId   string
 	body       *AgentCreateAgentRequest
 }
@@ -159,7 +217,7 @@ func (a *AgentAPIService) AgentCreateAgentExecute(r ApiAgentCreateAgentRequest) 
 
 type ApiAgentGetAgentRequest struct {
 	ctx        context.Context
-	ApiService *AgentAPIService
+	ApiService AgentAPI
 	tenantId   string
 	id         string
 }
@@ -287,7 +345,7 @@ func (a *AgentAPIService) AgentGetAgentExecute(r ApiAgentGetAgentRequest) (*Agen
 
 type ApiAgentListAgentsRequest struct {
 	ctx        context.Context
-	ApiService *AgentAPIService
+	ApiService AgentAPI
 	tenantId   string
 	pageSize   int64
 	body       *AgentListAgentsRequest
@@ -426,7 +484,7 @@ func (a *AgentAPIService) AgentListAgentsExecute(r ApiAgentListAgentsRequest) (*
 
 type ApiAgentUpdateAgentRequest struct {
 	ctx        context.Context
-	ApiService *AgentAPIService
+	ApiService AgentAPI
 	tenantId   string
 	id         string
 	body       *AgentUpdateAgentRequest

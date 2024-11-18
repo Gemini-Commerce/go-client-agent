@@ -48,7 +48,7 @@ type APIClient struct {
 
 	// API Services
 
-	AgentAPI *AgentAPIService
+	AgentAPI AgentAPI
 }
 
 type service struct {
