@@ -19,8 +19,8 @@ var _ MappedNullable = &AgentListResponse{}
 
 // AgentListResponse struct for AgentListResponse
 type AgentListResponse struct {
-	Agents []AgentAgentEntity `json:"agents,omitempty"`
-	PageToken *string `json:"pageToken,omitempty"`
+	Agents               []AgentAgentEntity `json:"agents,omitempty"`
+	PageToken            *string            `json:"pageToken,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -108,7 +108,7 @@ func (o *AgentListResponse) SetPageToken(v string) {
 }
 
 func (o AgentListResponse) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -155,22 +155,24 @@ func (o *AgentListResponse) UnmarshalJSON(data []byte) (err error) {
 
 // GetValue returns the value of well-known types
 func (o *AgentListResponse) GetValue() interface{} {
-	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
+	if o == nil || IsNil(o.AdditionalProperties) {
 		return nil
 	}
 	return o.AdditionalProperties["value"]
 }
-// SetValue populate the value of well-known types
+
+// SetValue populates the value of well-known types
 func (o *AgentListResponse) SetValue(value interface{}) {
-	if o == nil || IsNil(o.Type) || IsNil(value) {
+	if o == nil || IsNil(value) {
 		return
 	}
-    if IsNil(o.AdditionalProperties) {
-        o.AdditionalProperties = map[string]interface{}{}
-    }
+	if IsNil(o.AdditionalProperties) {
+		o.AdditionalProperties = map[string]interface{}{}
+	}
 	o.AdditionalProperties["value"] = value
 	return
 }
+
 type NullableAgentListResponse struct {
 	value *AgentListResponse
 	isSet bool
@@ -206,5 +208,3 @@ func (v *NullableAgentListResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

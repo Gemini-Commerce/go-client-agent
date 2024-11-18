@@ -21,7 +21,7 @@ type AgentSortOrder string
 // List of agentSortOrder
 const (
 	AGENTSORTORDER_DESC AgentSortOrder = "DESC"
-	AGENTSORTORDER_ASC AgentSortOrder = "ASC"
+	AGENTSORTORDER_ASC  AgentSortOrder = "ASC"
 )
 
 // All allowed values of AgentSortOrder enum
@@ -108,4 +108,3 @@ func (v *NullableAgentSortOrder) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

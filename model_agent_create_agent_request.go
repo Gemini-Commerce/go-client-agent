@@ -19,12 +19,12 @@ var _ MappedNullable = &AgentCreateAgentRequest{}
 
 // AgentCreateAgentRequest struct for AgentCreateAgentRequest
 type AgentCreateAgentRequest struct {
-	Code *string `json:"code,omitempty"`
-	Firstname *string `json:"firstname,omitempty"`
-	Lastname *string `json:"lastname,omitempty"`
-	Email *string `json:"email,omitempty"`
-	Password *string `json:"password,omitempty"`
-	Phone *string `json:"phone,omitempty"`
+	Code                 *string `json:"code,omitempty"`
+	Firstname            *string `json:"firstname,omitempty"`
+	Lastname             *string `json:"lastname,omitempty"`
+	Email                *string `json:"email,omitempty"`
+	Password             *string `json:"password,omitempty"`
+	Phone                *string `json:"phone,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -240,7 +240,7 @@ func (o *AgentCreateAgentRequest) SetPhone(v string) {
 }
 
 func (o AgentCreateAgentRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -303,22 +303,24 @@ func (o *AgentCreateAgentRequest) UnmarshalJSON(data []byte) (err error) {
 
 // GetValue returns the value of well-known types
 func (o *AgentCreateAgentRequest) GetValue() interface{} {
-	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
+	if o == nil || IsNil(o.AdditionalProperties) {
 		return nil
 	}
 	return o.AdditionalProperties["value"]
 }
-// SetValue populate the value of well-known types
+
+// SetValue populates the value of well-known types
 func (o *AgentCreateAgentRequest) SetValue(value interface{}) {
-	if o == nil || IsNil(o.Type) || IsNil(value) {
+	if o == nil || IsNil(value) {
 		return
 	}
-    if IsNil(o.AdditionalProperties) {
-        o.AdditionalProperties = map[string]interface{}{}
-    }
+	if IsNil(o.AdditionalProperties) {
+		o.AdditionalProperties = map[string]interface{}{}
+	}
 	o.AdditionalProperties["value"] = value
 	return
 }
+
 type NullableAgentCreateAgentRequest struct {
 	value *AgentCreateAgentRequest
 	isSet bool
@@ -354,5 +356,3 @@ func (v *NullableAgentCreateAgentRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

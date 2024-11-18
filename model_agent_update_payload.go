@@ -19,10 +19,10 @@ var _ MappedNullable = &AgentUpdatePayload{}
 
 // AgentUpdatePayload struct for AgentUpdatePayload
 type AgentUpdatePayload struct {
-	Firstname *string `json:"firstname,omitempty"`
-	Lastname *string `json:"lastname,omitempty"`
-	Email *string `json:"email,omitempty"`
-	Phone *string `json:"phone,omitempty"`
+	Firstname            *string `json:"firstname,omitempty"`
+	Lastname             *string `json:"lastname,omitempty"`
+	Email                *string `json:"email,omitempty"`
+	Phone                *string `json:"phone,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -174,7 +174,7 @@ func (o *AgentUpdatePayload) SetPhone(v string) {
 }
 
 func (o AgentUpdatePayload) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -229,22 +229,24 @@ func (o *AgentUpdatePayload) UnmarshalJSON(data []byte) (err error) {
 
 // GetValue returns the value of well-known types
 func (o *AgentUpdatePayload) GetValue() interface{} {
-	if o == nil || IsNil(o.Type) || IsNil(o.AdditionalProperties) {
+	if o == nil || IsNil(o.AdditionalProperties) {
 		return nil
 	}
 	return o.AdditionalProperties["value"]
 }
-// SetValue populate the value of well-known types
+
+// SetValue populates the value of well-known types
 func (o *AgentUpdatePayload) SetValue(value interface{}) {
-	if o == nil || IsNil(o.Type) || IsNil(value) {
+	if o == nil || IsNil(value) {
 		return
 	}
-    if IsNil(o.AdditionalProperties) {
-        o.AdditionalProperties = map[string]interface{}{}
-    }
+	if IsNil(o.AdditionalProperties) {
+		o.AdditionalProperties = map[string]interface{}{}
+	}
 	o.AdditionalProperties["value"] = value
 	return
 }
+
 type NullableAgentUpdatePayload struct {
 	value *AgentUpdatePayload
 	isSet bool
@@ -280,5 +282,3 @@ func (v *NullableAgentUpdatePayload) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

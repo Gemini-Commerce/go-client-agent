@@ -11,10 +11,10 @@ package agent
 
 import (
 	"context"
+	openapiclient "github.com/Gemini-Commerce/go-client-agent"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"testing"
-	openapiclient "github.com/Gemini-Commerce/go-client-agent"
 )
 
 func Test_agent_AgentAPIService(t *testing.T) {
@@ -24,7 +24,7 @@ func Test_agent_AgentAPIService(t *testing.T) {
 
 	t.Run("Test AgentAPIService AgentCreateAgent", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var tenantId string
 
@@ -38,7 +38,7 @@ func Test_agent_AgentAPIService(t *testing.T) {
 
 	t.Run("Test AgentAPIService AgentGetAgent", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var tenantId string
 		var id string
@@ -53,7 +53,7 @@ func Test_agent_AgentAPIService(t *testing.T) {
 
 	t.Run("Test AgentAPIService AgentListAgents", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var tenantId string
 		var pageSize int64
@@ -68,7 +68,7 @@ func Test_agent_AgentAPIService(t *testing.T) {
 
 	t.Run("Test AgentAPIService AgentUpdateAgent", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var tenantId string
 		var id string

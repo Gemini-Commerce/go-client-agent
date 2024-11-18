@@ -19,15 +19,14 @@ import (
 	"strings"
 )
 
-
 // AgentAPIService AgentAPI service
 type AgentAPIService service
 
 type ApiAgentCreateAgentRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *AgentAPIService
-	tenantId string
-	body *AgentCreateAgentRequest
+	tenantId   string
+	body       *AgentCreateAgentRequest
 }
 
 func (r ApiAgentCreateAgentRequest) Body(body AgentCreateAgentRequest) ApiAgentCreateAgentRequest {
@@ -42,26 +41,27 @@ func (r ApiAgentCreateAgentRequest) Execute() (*AgentAgentEntity, *http.Response
 /*
 AgentCreateAgent Method for AgentCreateAgent
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param tenantId
- @return ApiAgentCreateAgentRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param tenantId
+	@return ApiAgentCreateAgentRequest
 */
 func (a *AgentAPIService) AgentCreateAgent(ctx context.Context, tenantId string) ApiAgentCreateAgentRequest {
 	return ApiAgentCreateAgentRequest{
 		ApiService: a,
-		ctx: ctx,
-		tenantId: tenantId,
+		ctx:        ctx,
+		tenantId:   tenantId,
 	}
 }
 
 // Execute executes the request
-//  @return AgentAgentEntity
+//
+//	@return AgentAgentEntity
 func (a *AgentAPIService) AgentCreateAgentExecute(r ApiAgentCreateAgentRequest) (*AgentAgentEntity, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *AgentAgentEntity
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *AgentAgentEntity
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AgentAPIService.AgentCreateAgent")
@@ -134,14 +134,14 @@ func (a *AgentAPIService) AgentCreateAgentExecute(r ApiAgentCreateAgentRequest) 
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-			var v RpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+		var v RpcStatus
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -158,10 +158,10 @@ func (a *AgentAPIService) AgentCreateAgentExecute(r ApiAgentCreateAgentRequest) 
 }
 
 type ApiAgentGetAgentRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *AgentAPIService
-	tenantId string
-	id string
+	tenantId   string
+	id         string
 }
 
 func (r ApiAgentGetAgentRequest) Execute() (*AgentAgentEntity, *http.Response, error) {
@@ -171,28 +171,29 @@ func (r ApiAgentGetAgentRequest) Execute() (*AgentAgentEntity, *http.Response, e
 /*
 AgentGetAgent Method for AgentGetAgent
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param tenantId
- @param id
- @return ApiAgentGetAgentRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param tenantId
+	@param id
+	@return ApiAgentGetAgentRequest
 */
 func (a *AgentAPIService) AgentGetAgent(ctx context.Context, tenantId string, id string) ApiAgentGetAgentRequest {
 	return ApiAgentGetAgentRequest{
 		ApiService: a,
-		ctx: ctx,
-		tenantId: tenantId,
-		id: id,
+		ctx:        ctx,
+		tenantId:   tenantId,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return AgentAgentEntity
+//
+//	@return AgentAgentEntity
 func (a *AgentAPIService) AgentGetAgentExecute(r ApiAgentGetAgentRequest) (*AgentAgentEntity, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *AgentAgentEntity
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *AgentAgentEntity
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AgentAPIService.AgentGetAgent")
@@ -261,14 +262,14 @@ func (a *AgentAPIService) AgentGetAgentExecute(r ApiAgentGetAgentRequest) (*Agen
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-			var v RpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+		var v RpcStatus
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -285,11 +286,11 @@ func (a *AgentAPIService) AgentGetAgentExecute(r ApiAgentGetAgentRequest) (*Agen
 }
 
 type ApiAgentListAgentsRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *AgentAPIService
-	tenantId string
-	pageSize int64
-	body *AgentListAgentsRequest
+	tenantId   string
+	pageSize   int64
+	body       *AgentListAgentsRequest
 }
 
 func (r ApiAgentListAgentsRequest) Body(body AgentListAgentsRequest) ApiAgentListAgentsRequest {
@@ -304,28 +305,29 @@ func (r ApiAgentListAgentsRequest) Execute() (*AgentListResponse, *http.Response
 /*
 AgentListAgents Method for AgentListAgents
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param tenantId
- @param pageSize
- @return ApiAgentListAgentsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param tenantId
+	@param pageSize
+	@return ApiAgentListAgentsRequest
 */
 func (a *AgentAPIService) AgentListAgents(ctx context.Context, tenantId string, pageSize int64) ApiAgentListAgentsRequest {
 	return ApiAgentListAgentsRequest{
 		ApiService: a,
-		ctx: ctx,
-		tenantId: tenantId,
-		pageSize: pageSize,
+		ctx:        ctx,
+		tenantId:   tenantId,
+		pageSize:   pageSize,
 	}
 }
 
 // Execute executes the request
-//  @return AgentListResponse
+//
+//	@return AgentListResponse
 func (a *AgentAPIService) AgentListAgentsExecute(r ApiAgentListAgentsRequest) (*AgentListResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *AgentListResponse
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *AgentListResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AgentAPIService.AgentListAgents")
@@ -399,14 +401,14 @@ func (a *AgentAPIService) AgentListAgentsExecute(r ApiAgentListAgentsRequest) (*
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-			var v RpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+		var v RpcStatus
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
@@ -423,11 +425,11 @@ func (a *AgentAPIService) AgentListAgentsExecute(r ApiAgentListAgentsRequest) (*
 }
 
 type ApiAgentUpdateAgentRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *AgentAPIService
-	tenantId string
-	id string
-	body *AgentUpdateAgentRequest
+	tenantId   string
+	id         string
+	body       *AgentUpdateAgentRequest
 }
 
 func (r ApiAgentUpdateAgentRequest) Body(body AgentUpdateAgentRequest) ApiAgentUpdateAgentRequest {
@@ -442,28 +444,29 @@ func (r ApiAgentUpdateAgentRequest) Execute() (*AgentAgentEntity, *http.Response
 /*
 AgentUpdateAgent Method for AgentUpdateAgent
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param tenantId
- @param id
- @return ApiAgentUpdateAgentRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param tenantId
+	@param id
+	@return ApiAgentUpdateAgentRequest
 */
 func (a *AgentAPIService) AgentUpdateAgent(ctx context.Context, tenantId string, id string) ApiAgentUpdateAgentRequest {
 	return ApiAgentUpdateAgentRequest{
 		ApiService: a,
-		ctx: ctx,
-		tenantId: tenantId,
-		id: id,
+		ctx:        ctx,
+		tenantId:   tenantId,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return AgentAgentEntity
+//
+//	@return AgentAgentEntity
 func (a *AgentAPIService) AgentUpdateAgentExecute(r ApiAgentUpdateAgentRequest) (*AgentAgentEntity, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *AgentAgentEntity
+		localVarHTTPMethod  = http.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *AgentAgentEntity
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AgentAPIService.AgentUpdateAgent")
@@ -537,14 +540,14 @@ func (a *AgentAPIService) AgentUpdateAgentExecute(r ApiAgentUpdateAgentRequest) 
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-			var v RpcStatus
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+		var v RpcStatus
+		err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+		newErr.model = v
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
